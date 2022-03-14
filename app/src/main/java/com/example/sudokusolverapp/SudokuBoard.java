@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 public class SudokuBoard extends View {
     private  final int boardColor;
     private final Paint boardColorPaint = new Paint();
+    private int cellSize;
 
     public SudokuBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -30,7 +31,8 @@ public class SudokuBoard extends View {
     protected void onMeasure(int width, int height){
         super.onMeasure(width, height);
 
-        int dimension = Math.min(this.getWidth(), this.getHeight());
+        int dimension = Math.min(this.getMeasuredWidth(), this.getMeasuredHeight());
+        cellSize = dimension / 9;
 
         setMeasuredDimension(dimension, dimension);
     }
@@ -43,5 +45,42 @@ public class SudokuBoard extends View {
         boardColorPaint.setAntiAlias(true);
 
         canvas.drawRect(0, 0, getWidth(),getHeight(), boardColorPaint);
+        drawBoard(canvas);
+    }
+
+    private void drawThickLine() {
+        boardColorPaint.setStyle(Paint.Style.STROKE);
+        boardColorPaint.setStrokeWidth(10);
+        boardColorPaint.setColor(boardColor);
+    }
+
+    private void drawThinLine() {
+        boardColorPaint.setStyle(Paint.Style.STROKE);
+        boardColorPaint.setStrokeWidth(4);
+        boardColorPaint.setColor(boardColor);
+    }
+
+    private void drawBoard(Canvas canvas) {
+        for (int c = 0; c < 10; c++){
+            if (c%3 == 0){
+                drawThickLine();
+            }
+            else{
+                drawThinLine();
+            }
+            canvas.drawLine(cellSize* c, 0,
+                    cellSize * c, getWidth(), boardColorPaint);
+        }
+
+        for (int r = 0; r < 10; r++) {
+            if (r%3 == 0){
+                drawThickLine();
+            }
+            else{
+                drawThinLine();
+            }
+            canvas.drawLine(0, cellSize* r,
+                    getWidth(), cellSize* r, boardColorPaint);
+        }
     }
 }

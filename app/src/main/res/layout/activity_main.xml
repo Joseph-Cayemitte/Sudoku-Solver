@@ -8,13 +8,18 @@
     tools:context=".MainActivity">
 
     <com.example.sudokusolverapp.SudokuBoard
+        android:id="@+id/SudokuBoard"
+        custom:boardColor="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
         custom:layout_constraintBottom_toBottomOf="parent"
         custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintHorizontal_bias="0.498"
         custom:layout_constraintStart_toStartOf="parent"
         custom:layout_constraintTop_toTopOf="parent"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        custom:layout_constraintVertical_bias="0.499">
 
+    </com.example.sudokusolverapp.SudokuBoard>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
