@@ -17,7 +17,9 @@
         custom:layout_constraintHorizontal_bias="0.498"
         custom:layout_constraintStart_toStartOf="parent"
         custom:layout_constraintTop_toTopOf="parent"
-        custom:layout_constraintVertical_bias="0.499">
+        custom:layout_constraintVertical_bias="0.499"
+        custom:cellFillColor="#6600DDFF"
+        custom:cellsHighlightColor="#2600DDFF">
 
     </com.example.sudokusolverapp.SudokuBoard>
 
