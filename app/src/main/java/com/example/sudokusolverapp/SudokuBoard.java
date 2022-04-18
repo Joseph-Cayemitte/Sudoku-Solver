@@ -102,6 +102,7 @@ public class SudokuBoard extends View {
             canvas.drawRect(0, (c-1)*cellSize, c*cellSize, r*cellSize,
                     cellsHighlightColorPaint);
         }
+        invalidate();
     }
 
     private void drawThickLine() {
